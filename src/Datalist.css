@@ -1,0 +1,25 @@
+.Datalist {
+  font-family: Roboto Condensed, sans-serif;
+  max-height: 150px;
+  overflow-y: auto;
+}
+.Datalist_isLoading {
+  opacity: 0.8;
+}
+
+.Datalist__option {
+  background: white;
+  padding: 0.5em;
+  cursor: pointer;
+}
+
+.Datalist__option:hover {
+  background: rgb(224, 217, 235, 0.5);
+}
+
+.Datalist__option_selected {
+  background: #E0D9EB;
+}
+
+
+
