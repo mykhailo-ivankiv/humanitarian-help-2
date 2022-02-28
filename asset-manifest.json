@@ -1,17 +1,17 @@
 {
   "files": {
     "main.css": "/humanitarian-help-2/static/css/main.13b7df3d.css",
-    "main.js": "/humanitarian-help-2/static/js/main.539446dd.js",
-    "static/js/483.cd740f7e.chunk.js": "/humanitarian-help-2/static/js/483.cd740f7e.chunk.js",
+    "main.js": "/humanitarian-help-2/static/js/main.4152cdc3.js",
+    "static/js/483.1279ed0f.chunk.js": "/humanitarian-help-2/static/js/483.1279ed0f.chunk.js",
     "static/js/787.e9862043.chunk.js": "/humanitarian-help-2/static/js/787.e9862043.chunk.js",
     "index.html": "/humanitarian-help-2/index.html",
     "main.13b7df3d.css.map": "/humanitarian-help-2/static/css/main.13b7df3d.css.map",
-    "main.539446dd.js.map": "/humanitarian-help-2/static/js/main.539446dd.js.map",
-    "483.cd740f7e.chunk.js.map": "/humanitarian-help-2/static/js/483.cd740f7e.chunk.js.map",
+    "main.4152cdc3.js.map": "/humanitarian-help-2/static/js/main.4152cdc3.js.map",
+    "483.1279ed0f.chunk.js.map": "/humanitarian-help-2/static/js/483.1279ed0f.chunk.js.map",
     "787.e9862043.chunk.js.map": "/humanitarian-help-2/static/js/787.e9862043.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.13b7df3d.css",
-    "static/js/main.539446dd.js"
+    "static/js/main.4152cdc3.js"
   ]
 }
