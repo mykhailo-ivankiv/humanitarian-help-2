@@ -1,4 +1,5 @@
 .App {
+  font-family: "JetBrains Mono", monospace;
   display: grid;
   grid-template-columns: 50ch auto;
   height: 100vh;

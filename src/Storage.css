@@ -1,0 +1,11 @@
+.Storage {
+  padding: 1em;
+  cursor: pointer;
+}
+.Storage_selected {
+  background-color: lightsteelblue;
+}
+
+.Storage:hover {
+  background-color: aliceblue;
+}
