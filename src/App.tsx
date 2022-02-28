@@ -21,7 +21,7 @@ import { StorageType } from "./models";
 const b = BEM("App");
 
 const MAPBOX_TOKEN =
-  "pk.eyJ1IjoibmVmb3JtYWwiLCJhIjoiY2phejF2YjhpN2tyMDM0cjE5OTdubmxudSJ9.q0lAGC0rpxDIGfT6NCYloQ";
+  "pk.eyJ1IjoibmVmb3JtYWwiLCJhIjoiY2wwNzBzd2hpMDEwNjNkc2xzZjhoZG1vZCJ9.CRGhJ8S_x-DOsTsGVmLZXw";
 
 function App() {
   const [forceRenderCounter, forceRender] = useReducer((x) => x + 1, 0);
@@ -50,12 +50,11 @@ function App() {
         updatedAt: new Date(storage.updatedAt),
       }))
       .sort((a, b) => {
-        console.log(a.createdAt, b.createdAt);
         return b.createdAt - a.createdAt;
       });
   }, [forceRenderCounter]);
 
-  console.log(storages);
+  // console.log(storages);
 
   const [, setUserCoords] = React.useState({
     latitude: 0,
@@ -94,7 +93,7 @@ function App() {
               storage={storage}
               isSelected={selectedStorage === storage}
               onSelect={(storage) => {
-                console.log(storage);
+                // console.log(storage);
                 setSelectedStorage(storage);
                 togglePopup(true);
                 setMapCenter({

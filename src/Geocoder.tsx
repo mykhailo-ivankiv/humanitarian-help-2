@@ -4,7 +4,7 @@ import { useAsync, useDebounce } from "react-use";
 import DatalistSimplified from "./DatalistSimplified";
 
 const MAPBOX_TOKEN =
-  "pk.eyJ1IjoibmVmb3JtYWwiLCJhIjoiY2phejF2YjhpN2tyMDM0cjE5OTdubmxudSJ9.q0lAGC0rpxDIGfT6NCYloQ";
+  "pk.eyJ1IjoibmVmb3JtYWwiLCJhIjoiY2wwNzBzd2hpMDEwNjNkc2xzZjhoZG1vZCJ9.CRGhJ8S_x-DOsTsGVmLZXw";
 
 const cachedGeocoder = {};
 
