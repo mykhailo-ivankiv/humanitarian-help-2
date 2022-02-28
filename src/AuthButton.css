@@ -1,0 +1,21 @@
+.AuthButton {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    font-size: 1rem;
+    font-weight: bold;
+    height: 50px;
+    padding: 0 1rem 0 0;
+    margin: auto;
+    border: 1px solid #4285F4;
+    border-radius: 2px;
+    background: #4285F4;
+    color: white;
+}
+.AuthButton__icon {
+    width: 30px;
+    height: 28px;
+    padding: 10px;
+    margin-right: 0.5rem;
+    background-color: white;
+}

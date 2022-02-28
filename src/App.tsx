@@ -11,6 +11,8 @@ import Map, {
 import "mapbox-gl/dist/mapbox-gl.css";
 import { useToggle, useAsync } from "react-use";
 import { collection, getDocs } from "@firebase/firestore";
+
+import AuthButton from "./AuthButton";
 import { db } from "./initFirebase";
 import "./App.css";
 import BEM from "./helpers/BEM";
@@ -64,6 +66,7 @@ function App() {
   return (
     <div className={b()}>
       <div className={b("sidebar")}>
+        <AuthButton />
         {isAdding ? (
           <AddStorage
             onLocationSelected={(location) => {
