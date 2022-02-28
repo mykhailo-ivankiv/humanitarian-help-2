@@ -1,3 +1,4 @@
+/* eslint-disable */
 import React, { useCallback, useEffect, useMemo, useReducer, useRef } from 'react';
 import { test } from 'ramda';
 import { useLatest, useToggle } from 'react-use';

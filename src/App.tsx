@@ -1,4 +1,5 @@
 // @ts-nocheck
+/* eslint-disable */
 import React, { useState, useReducer } from "react";
 import Map, {
   GeolocateControl,
@@ -35,7 +36,7 @@ function App() {
 
   const {
     value: storages = [],
-    error,
+    // error,
     loading,
   } = useAsync(async () => {
     const storageCollection = collection(db, "storages");
@@ -56,7 +57,7 @@ function App() {
 
   console.log(storages);
 
-  const [userGeolocale, setUserCoords] = React.useState({
+  const [, setUserCoords] = React.useState({
     latitude: 0,
     longitude: 0,
   });

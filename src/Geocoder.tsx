@@ -1,3 +1,4 @@
+/* eslint-disable */
 import React, { useState, useRef } from "react";
 import { useAsync, useDebounce } from "react-use";
 import DatalistSimplified from "./DatalistSimplified";
