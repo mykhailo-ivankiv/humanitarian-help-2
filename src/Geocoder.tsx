@@ -3,9 +3,6 @@ import React, { useState, useRef } from "react";
 import { useAsync, useDebounce } from "react-use";
 import DatalistSimplified from "./DatalistSimplified";
 
-const MAPBOX_TOKEN =
-  "pk.eyJ1IjoibmVmb3JtYWwiLCJhIjoiY2wwNzBzd2hpMDEwNjNkc2xzZjhoZG1vZCJ9.CRGhJ8S_x-DOsTsGVmLZXw";
-
 const cachedGeocoder = {};
 
 type Props<T> = {
@@ -30,7 +27,7 @@ const Geocoder = <T,>({ className, onTextChange, onSelect }: Props<T>) => {
     if (cachedGeocoder[debouncedQuery]) return;
 
     const response = await fetch(
-      `https://api.mapbox.com/geocoding/v5/mapbox.places/${debouncedQuery}.json?access_token=${MAPBOX_TOKEN}`
+      `https://api.mapbox.com/geocoding/v5/mapbox.places/${debouncedQuery}.json?access_token=${process.env.REACT_APP_MAPBOX_TOKEN}`
     );
 
     const features = (await response.json())?.features || [];

@@ -20,9 +20,6 @@ import { StorageType } from "./models";
 
 const b = BEM("App");
 
-const MAPBOX_TOKEN =
-  "pk.eyJ1IjoibmVmb3JtYWwiLCJhIjoiY2wwNzBzd2hpMDEwNjNkc2xzZjhoZG1vZCJ9.CRGhJ8S_x-DOsTsGVmLZXw";
-
 function App() {
   const [forceRenderCounter, forceRender] = useReducer((x) => x + 1, 0);
   const [selectedStorage, setSelectedStorage] = useState<StorageType | null>(
@@ -108,7 +105,7 @@ function App() {
 
       <div className={b("map")}>
         <Map
-          mapboxAccessToken={MAPBOX_TOKEN}
+          mapboxAccessToken={process.env.REACT_APP_MAPBOX_TOKEN}
           initialViewState={{
             ...mapCenter,
             zoom: 14,
