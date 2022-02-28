@@ -41,8 +41,20 @@ function App() {
     const storageCollection = collection(db, "storages");
     const storages = await getDocs(storageCollection);
 
-    return storages.docs.map((doc) => ({ ...doc.data() })) as StorageType[];
+    return storages.docs
+      .map((doc) => ({ ...doc.data() }))
+      .map((storage) => ({
+        ...storage,
+        createdAt: new Date(storage.createdAt),
+        updatedAt: new Date(storage.updatedAt),
+      }))
+      .sort((a, b) => {
+        console.log(a.createdAt, b.createdAt);
+        return b.createdAt - a.createdAt;
+      });
   }, [forceRenderCounter]);
+
+  console.log(storages);
 
   const [userGeolocale, setUserCoords] = React.useState({
     latitude: 0,

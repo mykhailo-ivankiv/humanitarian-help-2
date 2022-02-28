@@ -32,9 +32,11 @@ const AddStorage: React.FC<Props> = ({ onLocationSelected, onCreate }) => {
       }}
       onSubmit={async (values) => {
         const storageCollection = collection(db, "storages");
-        const doc = await addDoc(storageCollection, values);
-
-        console.log("Create doc", doc);
+        const doc = await addDoc(storageCollection, {
+          ...values,
+          createdAt: new Date().toISOString(),
+          updatedAt: new Date().toISOString(),
+        });
         onCreate(doc);
       }}
     >
