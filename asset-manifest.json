@@ -1,17 +1,17 @@
 {
   "files": {
-    "main.css": "/humanitarian-help-2/static/css/main.d715c29c.css",
-    "main.js": "/humanitarian-help-2/static/js/main.99e08360.js",
+    "main.css": "/humanitarian-help-2/static/css/main.3d5a18dc.css",
+    "main.js": "/humanitarian-help-2/static/js/main.1145afbc.js",
     "static/js/483.4a68b698.chunk.js": "/humanitarian-help-2/static/js/483.4a68b698.chunk.js",
     "static/js/787.95403b4b.chunk.js": "/humanitarian-help-2/static/js/787.95403b4b.chunk.js",
     "index.html": "/humanitarian-help-2/index.html",
-    "main.d715c29c.css.map": "/humanitarian-help-2/static/css/main.d715c29c.css.map",
-    "main.99e08360.js.map": "/humanitarian-help-2/static/js/main.99e08360.js.map",
+    "main.3d5a18dc.css.map": "/humanitarian-help-2/static/css/main.3d5a18dc.css.map",
+    "main.1145afbc.js.map": "/humanitarian-help-2/static/js/main.1145afbc.js.map",
     "483.4a68b698.chunk.js.map": "/humanitarian-help-2/static/js/483.4a68b698.chunk.js.map",
     "787.95403b4b.chunk.js.map": "/humanitarian-help-2/static/js/787.95403b4b.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.d715c29c.css",
-    "static/js/main.99e08360.js"
+    "static/css/main.3d5a18dc.css",
+    "static/js/main.1145afbc.js"
   ]
 }
