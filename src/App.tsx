@@ -112,7 +112,12 @@ function App() {
           }}
           longitude={mapCenter.longitude}
           latitude={mapCenter.latitude}
-          style={{ width: "100%", height: "100%" }}
+          style={{
+            width: "100%",
+            height: "100%",
+            position: "sticky",
+            top: 0,
+          }}
           mapStyle="mapbox://styles/mapbox/streets-v9"
           onMove={({ viewState }) => {
             setMapCenter({

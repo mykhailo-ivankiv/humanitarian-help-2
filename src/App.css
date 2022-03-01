@@ -5,8 +5,11 @@
   height: 100vh;
   width: 100vw;
 }
-.App__sidebar {
 
+.App__sidebar {
+  overflow: auto;
 }
-.App__map {}
+
+.App__map {
+}
 
