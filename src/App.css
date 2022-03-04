@@ -1,15 +1,20 @@
 .App {
-  font-family: "JetBrains Mono", monospace;
-  display: grid;
-  grid-template-columns: 50ch auto;
-  height: 100vh;
-  width: 100vw;
 }
 
-.App__sidebar {
-  overflow: auto;
+.App__nav {
+  text-align: center;
+  background: white;
+  padding: 1em;
+  position: fixed;
+  top: 2rem;
+  left: 50%;
+  transform: translateX(-50%);
+  font-family: PT Serif, sans-serif;
+  font-size: 1rem;
+  z-index: 2;
 }
 
-.App__map {
+.App__link {
+  margin: 0 1rem;
+  text-transform: uppercase;
 }
-
