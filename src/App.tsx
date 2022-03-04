@@ -1,3 +1,5 @@
+// @ts-nocheck
+/* eslint-disable */
 import MainMapDemo from "./MainMapDemo";
 import { BrowserRouter, Link, Routes, Route } from "react-router-dom";
 import DropPoints from "./DropPoints";
