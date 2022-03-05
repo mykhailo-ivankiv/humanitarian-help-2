@@ -1,14 +1,20 @@
-import React, { useCallback, useEffect, useMemo, useReducer, useRef } from 'react';
-import { test } from 'ramda';
-import { useLatest, useToggle } from 'react-use';
-import Popover from './Popover';
-import SearchHighlight, { SearchHighlightContext } from './SearchHighlight';
-import { getFilteredIndexesMap } from './helpers/list';
-import { escapeRegExp } from './helpers/string';
+import React, {
+  useCallback,
+  useEffect,
+  useMemo,
+  useReducer,
+  useRef,
+} from "react";
+import { test } from "ramda";
+import { useLatest, useToggle } from "react-use";
+import Popover from "./Popover";
+import SearchHighlight, { SearchHighlightContext } from "./SearchHighlight";
+import { getFilteredIndexesMap } from "./helpers/list";
+import { escapeRegExp } from "./helpers/string";
 
-import './Datalist.css';
-import BEM from './helpers/BEM';
-const b = BEM('Datalist');
+import "./Datalist.css";
+import BEM from "./helpers/BEM";
+const b = BEM("Datalist");
 
 type Props<T = unknown> = {
   relatedEl: HTMLInputElement;
@@ -18,7 +24,10 @@ type Props<T = unknown> = {
 };
 
 // https://stackoverflow.com/questions/23892547/what-is-the-best-way-to-trigger-onchange-event-in-react-js/46012210#46012210
-const nativeInputValueSetter = Object.getOwnPropertyDescriptor(window.HTMLInputElement.prototype, 'value')?.set;
+const nativeInputValueSetter = Object.getOwnPropertyDescriptor(
+  window.HTMLInputElement.prototype,
+  "value"
+)?.set;
 
 /**
  * Datalist component try to mimic the native datalist component.
@@ -27,14 +36,21 @@ const nativeInputValueSetter = Object.getOwnPropertyDescriptor(window.HTMLInputE
  * Important: This component is used native event handlers and in some cases modify the `relatedEl`
  *  In some cases it dispatch the `change` event on the `relatedEl`.
  */
-const Datalist = <T,>({ relatedEl, onChange, data, mapDataToLabel }: Props<T>) => {
+const Datalist = <T,>({
+  relatedEl,
+  onChange,
+  data,
+  mapDataToLabel,
+}: Props<T>) => {
   const [isOpen, toggleOpen] = useToggle(false);
 
   const isOpenRef = useLatest(isOpen);
   const [, forceRender] = useReducer((x) => x + 1, 0);
   const updateView = useCallback(() => {
     forceRender();
-    optionsEl.current?.children[selectedOptionIndex.current]?.scrollIntoView({ block: 'center' });
+    optionsEl.current?.children[selectedOptionIndex.current]?.scrollIntoView({
+      block: "center",
+    });
   }, []);
 
   const mappedData = useMemo<string[]>(() => data.map(mapDataToLabel), [data]);
@@ -50,7 +66,7 @@ const Datalist = <T,>({ relatedEl, onChange, data, mapDataToLabel }: Props<T>) =
     (value) => {
       // https://stackoverflow.com/questions/23892547/what-is-the-best-way-to-trigger-onchange-event-in-react-js/46012210#46012210
       nativeInputValueSetter?.call(relatedEl, mapDataToLabel(value));
-      relatedEl?.dispatchEvent(new Event('input', { bubbles: true }));
+      relatedEl?.dispatchEvent(new Event("input", { bubbles: true }));
 
       toggleOpen(false);
       onChange(value);
@@ -59,28 +75,33 @@ const Datalist = <T,>({ relatedEl, onChange, data, mapDataToLabel }: Props<T>) =
   );
 
   useEffect(() => {
-    optionsEl.current?.children[selectedOptionIndex.current]?.scrollIntoView({ block: 'center' });
+    optionsEl.current?.children[selectedOptionIndex.current]?.scrollIntoView({
+      block: "center",
+    });
   }, [isOpen]);
 
   useEffect(() => {
-    const regex = new RegExp(escapeRegExp(relatedEl.value), 'i');
-    [filteredOptionsIndexes.current, selectedOptionIndex.current] = getFilteredIndexesMap(
-      mappedData,
-      selectedDataIndex.current,
-      (data) => test(regex, data)
-    );
+    const regex = new RegExp(escapeRegExp(relatedEl.value), "i");
+    [filteredOptionsIndexes.current, selectedOptionIndex.current] =
+      getFilteredIndexesMap(mappedData, selectedDataIndex.current, (data) =>
+        test(regex, data)
+      );
 
     updateView();
   }, [mappedData]);
 
   const inputEventHandler = useCallback((e: Event) => {
-    const regex = new RegExp(escapeRegExp((e.target as HTMLInputElement)?.value), 'i');
-
-    [filteredOptionsIndexes.current, selectedOptionIndex.current] = getFilteredIndexesMap(
-      lastMappedDateRef.current,
-      selectedDataIndex.current,
-      (data) => test(regex, data)
+    const regex = new RegExp(
+      escapeRegExp((e.target as HTMLInputElement)?.value),
+      "i"
     );
+
+    [filteredOptionsIndexes.current, selectedOptionIndex.current] =
+      getFilteredIndexesMap(
+        lastMappedDateRef.current,
+        selectedDataIndex.current,
+        (data) => test(regex, data)
+      );
 
     if (!isOpenRef.current) toggleOpen(true);
     updateView();
@@ -88,7 +109,7 @@ const Datalist = <T,>({ relatedEl, onChange, data, mapDataToLabel }: Props<T>) =
 
   const keydownEventHandler = useCallback((e) => {
     if (!isOpenRef.current) {
-      if (e.key === 'ArrowDown' || e.key === 'ArrowUp') {
+      if (e.key === "ArrowDown" || e.key === "ArrowUp") {
         e.preventDefault();
         toggleOpen(true);
       }
@@ -96,36 +117,41 @@ const Datalist = <T,>({ relatedEl, onChange, data, mapDataToLabel }: Props<T>) =
       return;
     }
 
-    if (e.key === 'Enter') {
+    if (e.key === "Enter") {
       e.preventDefault();
       e.stopPropagation();
 
-      if (selectedOptionIndex.current !== -1) handleChange(latestDataRef.current[selectedDataIndex.current]);
+      if (selectedOptionIndex.current !== -1)
+        handleChange(latestDataRef.current[selectedDataIndex.current]);
     }
 
-    if (e.key === 'ArrowDown') {
+    if (e.key === "ArrowDown") {
       e.preventDefault();
 
       selectedOptionIndex.current =
-        selectedOptionIndex.current + 1 < filteredOptionsIndexes.current.length ? selectedOptionIndex.current + 1 : 0;
+        selectedOptionIndex.current + 1 < filteredOptionsIndexes.current.length
+          ? selectedOptionIndex.current + 1
+          : 0;
 
-      selectedDataIndex.current = filteredOptionsIndexes.current[selectedOptionIndex.current];
+      selectedDataIndex.current =
+        filteredOptionsIndexes.current[selectedOptionIndex.current];
 
       updateView();
     }
 
-    if (e.key === 'ArrowUp') {
+    if (e.key === "ArrowUp") {
       e.preventDefault();
       selectedOptionIndex.current =
         selectedOptionIndex.current - 1 >= 0
           ? selectedOptionIndex.current - 1
           : filteredOptionsIndexes.current.length - 1;
 
-      selectedDataIndex.current = filteredOptionsIndexes.current[selectedOptionIndex.current];
+      selectedDataIndex.current =
+        filteredOptionsIndexes.current[selectedOptionIndex.current];
       updateView();
     }
 
-    if (e.key === 'Escape') {
+    if (e.key === "Escape") {
       e.preventDefault();
       toggleOpen(false);
     }
@@ -138,18 +164,18 @@ const Datalist = <T,>({ relatedEl, onChange, data, mapDataToLabel }: Props<T>) =
   useEffect(() => {
     if (!relatedEl) return;
 
-    relatedEl.addEventListener('input', inputEventHandler);
-    relatedEl.addEventListener('keydown', keydownEventHandler);
-    relatedEl.addEventListener('blur', blurEventHandler);
-    relatedEl.addEventListener('focus', focusEventHandler);
-    relatedEl.addEventListener('click', clickEventHandler);
+    relatedEl.addEventListener("input", inputEventHandler);
+    relatedEl.addEventListener("keydown", keydownEventHandler);
+    relatedEl.addEventListener("blur", blurEventHandler);
+    relatedEl.addEventListener("focus", focusEventHandler);
+    relatedEl.addEventListener("click", clickEventHandler);
 
     return () => {
-      relatedEl.removeEventListener('input', inputEventHandler);
-      relatedEl.removeEventListener('keydown', keydownEventHandler);
-      relatedEl.removeEventListener('blur', blurEventHandler);
-      relatedEl.removeEventListener('focus', focusEventHandler);
-      relatedEl.removeEventListener('click', clickEventHandler);
+      relatedEl.removeEventListener("input", inputEventHandler);
+      relatedEl.removeEventListener("keydown", keydownEventHandler);
+      relatedEl.removeEventListener("blur", blurEventHandler);
+      relatedEl.removeEventListener("focus", focusEventHandler);
+      relatedEl.removeEventListener("click", clickEventHandler);
     };
   }, [relatedEl]);
 
@@ -168,7 +194,9 @@ const Datalist = <T,>({ relatedEl, onChange, data, mapDataToLabel }: Props<T>) =
                 selectedDataIndex.current = dataIndex;
                 handleChange(data[dataIndex]);
               }}
-              className={b('option', { selected: selectedOptionIndex.current === optionIndex })}
+              className={b("option", {
+                selected: selectedOptionIndex.current === optionIndex,
+              })}
             >
               <SearchHighlight text={mappedData[dataIndex]} />
             </div>
