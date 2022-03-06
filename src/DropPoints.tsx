@@ -1,6 +1,6 @@
 // @ts-nocheck
 /* eslint-disable */
-import React, { useState, useMemo } from 'react'
+import React, { useMemo } from 'react'
 import Map, { GeolocateControl, Marker, NavigationControl, Popup } from 'react-map-gl'
 import 'mapbox-gl/dist/mapbox-gl.css'
 import { useAsync } from 'react-use'
@@ -23,7 +23,7 @@ function DropPoints() {
   }, [])
 
   const selectedStorage = useMemo(() => {
-    if (!storageId || storages.length === 0) return null
+    if (!storageId || storages?.length === 0) return null
 
     return storages.find((storage) => storage.id === storageId)
   }, [storages, storageId])
@@ -34,11 +34,11 @@ function DropPoints() {
   })
 
   const bounds = useMemo(() => {
-    if (storages.length === 0) return null
+    if (!storages || storages.length === 0) return null
 
     const features = points(
       storages
-        .filter(({ longitude, latitude }) => longitude && latitude)
+        ?.filter(({ longitude, latitude }) => longitude && latitude)
         .map(({ longitude, latitude }) => [longitude, latitude]),
     )
     const box = bbox(features)
@@ -87,9 +87,10 @@ function DropPoints() {
               }
             />
 
-            {storages.map((storage) => {
+            {storages?.map((storage) => {
               return (
                 <Marker
+                  key={storage.id}
                   color={storage.status === 'open' ? '#ff0000' : '#A9A9A9'}
                   longitude={storage.longitude}
                   latitude={storage.latitude}
