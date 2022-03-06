@@ -1,17 +1,24 @@
 .App {
 }
 
+.App h1 {
+  font-weight: 700;
+}
+
 .App__nav {
-  text-align: center;
   background: white;
   padding: 1em;
   position: fixed;
-  top: 2rem;
-  left: 50%;
-  transform: translateX(-50%);
+  top: 1rem;
+  left: 0.5rem;
+
   font-family: PT Serif, sans-serif;
   font-size: 1rem;
   z-index: 2;
+}
+
+.App__nav dl {
+  font-family: "PT Sans", serif;
 }
 
 .App__link {
