@@ -2,7 +2,7 @@
   "name": "humanitarian-help",
   "version": "0.1.0",
   "private": true,
-  "homepage": "https://neformal13.github.io/humanitarian-help-2",
+  "homepage": "http://humanitarian-help.war.in.ua",
   "type": "module",
   "dependencies": {
     "@ant-design/icons": "^4.7.0",
