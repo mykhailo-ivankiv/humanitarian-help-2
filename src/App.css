@@ -4,6 +4,12 @@
 .App h1 {
   font-weight: 700;
 }
+.App dl {
+  margin-bottom: 0;
+}
+.App dd {
+  margin-bottom: 0.3em;
+}
 
 .App__nav {
   background: white;
@@ -16,9 +22,14 @@
   font-size: 1rem;
   z-index: 2;
 }
+@media screen and (max-width: 600px) {
+  .App__nav {
+    font-size: 14px;
+  }
+}
 
 .App__nav dl {
-  font-family: "PT Sans", serif;
+  font-family: 'PT Sans', serif;
 }
 
 .App__link {
