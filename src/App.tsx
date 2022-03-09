@@ -14,15 +14,10 @@ const App = () => {
           <h1>Humanitarian help in Netherlands</h1>
 
           <dl>
+            <dt>from 9:00 to 18:00</dt>
             <dd>
-              <a href="mailto:support@ukrainians.nl">support@ukrainians.nl</a>
-            </dd>
-
-            <dt>📞 from 10:00 to 20:00</dt>
-            <dd>
-              <a href="tel:+31619224144">+31 619224144</a> Natalia
-              <br />
-              <a href="tel:+31 682892712">+31 682892712</a> Nikita
+              ✉️ <a href="mailto:support@ukrainians.nl">support@ukrainians.nl</a><br/>
+              📞 <a href="tel:+31102005661">+31 102005661</a>
             </dd>
           </dl>
         </nav>
